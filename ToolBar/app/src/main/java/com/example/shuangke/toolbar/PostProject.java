@@ -8,13 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class signIn extends AppCompatActivity {
+public class PostProject extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_post_project);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Post a new project");
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -26,13 +27,8 @@ public class signIn extends AppCompatActivity {
             }
         });
     }
-
     public void gotoHomePage(View view){
         Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
-    public void gotoUserProjectInfor(View view){
-        Intent intent = new Intent(this,userProjectInfor.class);
         startActivity(intent);
     }
 

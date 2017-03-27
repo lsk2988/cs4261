@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/lights"
     tools:context="com.example.shuangke.toolbar.MainActivity">
      <include layout="@layout/toolbar" android:id="@+id/toolbar"/>
 
@@ -18,26 +19,29 @@
         android:id="@+id/onCampusProjects"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/holo_blue_bright"
         android:text="On Campus Projects"
         android:layout_above="@+id/rewardedProjects"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/rewardedProjects"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:background="@android:color/holo_green_light"
         android:text="Rewarded Project"
         android:layout_above="@+id/ComputerScience"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/ComputerScience"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_red_light"
         android:text="Computer Science"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="7dp"
         android:layout_above="@+id/bussiness"
         android:layout_centerHorizontal="true" />
 
@@ -45,18 +49,20 @@
         android:id="@+id/bussiness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:backgroundTint="?android:attr/textColorHighlight"
         android:text="Bussiness"
         android:layout_above="@+id/allCategories"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/allCategories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="All Categories"
+        android:layout_marginBottom="83dp"
+        android:background="@android:color/holo_orange_light"
         android:onClick="gotoAllCategoriesActivity"
-        android:layout_marginBottom="75dp"
+        android:text="All Categories"
         android:layout_above="@+id/signin"
         android:layout_centerHorizontal="true" />
 

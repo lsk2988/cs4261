@@ -20,6 +20,14 @@
         <activity
             android:name=".signIn"
             android:label="Sign In"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".userProjectInfor"
+            android:label="My projects"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".PostProject"
+            android:label="@string/title_activity_post_project"
             android:theme="@style/AppTheme"></activity>
     </application>
 

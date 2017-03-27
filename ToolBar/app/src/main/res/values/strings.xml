@@ -23,4 +23,6 @@
         <item>Education description</item>
     </string-array>
     <string name="title_activity_sign_in">signIn</string>
+    <string name="title_activity_user_project_infor">userProjectInfor</string>
+    <string name="title_activity_post_project">PostProject</string>
 </resources>
