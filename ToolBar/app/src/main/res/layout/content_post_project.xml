@@ -29,7 +29,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         android:layout_below="@+id/editText5"
-        android:layout_alignEnd="@+id/checkBox4" />
+        android:layout_alignEnd="@+id/MusicCk1" />
 
     <EditText
         android:id="@+id/project_title"
@@ -132,7 +132,7 @@
         android:layout_alignBaseline="@+id/editText5"
         android:layout_alignBottom="@+id/editText5"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/checkBox2" />
+        android:layout_toEndOf="@+id/csCK1" />
 
     <CheckBox
         android:id="@+id/health_checkBox"
@@ -144,7 +144,7 @@
         android:text="Health" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/csCK1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/health_checkBox"
@@ -153,16 +153,16 @@
         android:text="CS" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/businessCK1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/checkBox2"
+        android:layout_alignTop="@+id/csCK1"
         android:layout_marginStart="18dp"
         android:layout_toEndOf="@+id/textView10"
         android:text="Business" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/MusicCk1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/health_checkBox"
@@ -171,19 +171,19 @@
         android:text="Music" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/sportsCK1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sports"
         android:layout_above="@+id/textView14"
-        android:layout_alignStart="@+id/checkBox2" />
+        android:layout_alignStart="@+id/csCK1" />
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/ArtsCK1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/checkBox5"
-        android:layout_alignStart="@+id/checkBox3"
+        android:layout_alignBottom="@+id/sportsCK1"
+        android:layout_alignStart="@+id/businessCK1"
         android:text="Arts" />
 
     <TextView
@@ -194,7 +194,7 @@
         android:text="Project Reward:"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:layout_below="@+id/checkBox4"
+        android:layout_below="@+id/MusicCk1"
         android:layout_alignStart="@+id/textView19" />
 
     <EditText
@@ -273,7 +273,7 @@
         android:text="Address" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/contact_adress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -287,8 +287,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Post"
-        android:layout_alignTop="@+id/editText11"
-        android:layout_toEndOf="@+id/contact_phoneNumber" />
+        android:layout_alignTop="@+id/contact_adress"
+        android:layout_toEndOf="@+id/contact_phoneNumber"
+        android:onClick="gotoUserProjectInfor"/>
 
     <Button
         android:id="@+id/home"
