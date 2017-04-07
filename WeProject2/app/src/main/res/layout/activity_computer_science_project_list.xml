@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.shuangke.weproject2.AllCategories">
+    tools:context="com.example.shuangke.weproject2.ComputerScienceProjectList">
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="95dp" />
-
-    <include
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        layout="@layout/toolbar_layout"></include>
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,6 +15,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_all_categories" />
+    <include layout="@layout/content_computer_science_project_list" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>

@@ -20,5 +20,16 @@
         completions."
     </string>
     <string name="title_activity_all_categories">AllCategories</string>
+    <string name="title_activity_arts_project_list">ArtsProjectList</string>
+    <string name="title_activity_business_project_list">BusinessProjectList</string>
+    <string name="title_activity_biology_project_list">BiologyProjectList</string>
+    <string name="title_activity_computer_science_project_list">ComputerScienceProjectList</string>
+    <string name="title_activity_chemistry_project_list">ChemistryProjectList</string>
+    <string name="title_activity_education_project_list">EducationProjectList</string>
+    <string name="title_activity_math_project_list">MathProjectList</string>
+    <string name="title_activity_music_project_list">MusicProjectList</string>
+    <string name="title_activity_sports_project_list">SportsProjectList</string>
+    <string name="title_activity_arts_project_detail">ArtsProjectDetail</string>
+    <string name="title_activity_business_project_details">BusinessProjectDetails</string>
 
 </resources>

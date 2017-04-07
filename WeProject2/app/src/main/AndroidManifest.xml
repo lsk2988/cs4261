@@ -31,6 +31,105 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.shuangke.weproject2.HomePage" />
         </activity>
+        <activity
+            android:name=".BusinessProjectList"
+            android:label="@string/title_activity_business_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".BiologyProjectList"
+            android:label="@string/title_activity_biology_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".ComputerScienceProjectList"
+            android:label="@string/title_activity_computer_science_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".ChemistryProjectList"
+            android:label="@string/title_activity_chemistry_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".EducationProjectList"
+            android:label="@string/title_activity_education_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".MathProjectList"
+            android:label="@string/title_activity_math_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".MusicProjectList"
+            android:label="@string/title_activity_music_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".SportsProjectList"
+            android:label="@string/title_activity_sports_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".ArtsProjectList"
+            android:label="@string/title_activity_arts_project_list"
+            android:parentActivityName=".AllCategories"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.AllCategories" />
+        </activity>
+        <activity
+            android:name=".ArtsProjectDetail"
+            android:label="@string/title_activity_arts_project_detail"
+            android:parentActivityName=".ArtsProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.ArtsProjectList" />
+        </activity>
+        <activity
+            android:name=".BusinessProjectDetails"
+            android:label="@string/title_activity_business_project_details"
+            android:parentActivityName=".BusinessProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.BusinessProjectList" />
+        </activity>
     </application>
 
 </manifest>
