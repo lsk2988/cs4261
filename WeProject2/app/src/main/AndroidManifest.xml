@@ -122,13 +122,76 @@
                 android:value="com.example.shuangke.weproject2.ArtsProjectList" />
         </activity>
         <activity
-            android:name=".BusinessProjectDetails"
-            android:label="@string/title_activity_business_project_details"
+            android:name=".BusinessProjectDetail"
+            android:label="@string/title_activity_business_project_detail"
             android:parentActivityName=".BusinessProjectList"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.shuangke.weproject2.BusinessProjectList" />
+        </activity>
+        <activity
+            android:name=".BiologyProjectDetail"
+            android:label="@string/title_activity_biology_project_detail"
+            android:parentActivityName=".BiologyProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.BiologyProjectList" />
+        </activity>
+        <activity
+            android:name=".ComputerScienceProjectDetail"
+            android:label="@string/title_activity_computer_science_project_detail"
+            android:parentActivityName=".ComputerScienceProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.ComputerScienceProjectList" />
+        </activity>
+        <activity
+            android:name=".ChemistryProjectDetail"
+            android:label="@string/title_activity_chemistry_project_detail"
+            android:parentActivityName=".ChemistryProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.ChemistryProjectList" />
+        </activity>
+        <activity
+            android:name=".EducationProjectDetail"
+            android:label="@string/title_activity_education_project_detail"
+            android:parentActivityName=".EducationProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.EducationProjectList" />
+        </activity>
+        <activity
+            android:name=".MathProjectDetail"
+            android:label="@string/title_activity_math_project_detail"
+            android:parentActivityName=".MathProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.MathProjectList" />
+        </activity>
+        <activity
+            android:name=".MusicProjectDetail"
+            android:label="@string/title_activity_music_project_detail"
+            android:parentActivityName=".MusicProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.MusicProjectList" />
+        </activity>
+        <activity
+            android:name=".SportsProjectDetail"
+            android:label="@string/title_activity_sports_project_detail"
+            android:parentActivityName=".SportsProjectList"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shuangke.weproject2.SportsProjectList" />
         </activity>
     </application>
 

@@ -31,5 +31,15 @@
     <string name="title_activity_sports_project_list">SportsProjectList</string>
     <string name="title_activity_arts_project_detail">ArtsProjectDetail</string>
     <string name="title_activity_business_project_details">BusinessProjectDetails</string>
+    <string name="title_activity_business_project_detail">BusinessProjectDetail</string>
+    <string name="title_activity_biology_project_detail">BiologyProjectDetail</string>
+    <string name="title_activity_computer_science_project_detail">ComputerScienceProjectDetail
+    </string>
+    <string name="title_activity_chemistry_project_detail">ChemistryProjectDetail</string>
+    <string name="title_activity_education_project_detail">EducationProjectDetail</string>
+    <string name="title_activity_math">Math</string>
+    <string name="title_activity_math_project_detail">MathProjectDetail</string>
+    <string name="title_activity_music_project_detail">MusicProjectDetail</string>
+    <string name="title_activity_sports_project_detail">SportsProjectDetail</string>
 
 </resources>
