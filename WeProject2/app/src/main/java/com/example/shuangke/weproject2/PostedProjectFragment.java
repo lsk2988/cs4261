@@ -26,4 +26,6 @@ public class PostedProjectFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_posted_project, container, false);
     }
 
+
+
 }

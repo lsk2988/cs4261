@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 /**
@@ -21,6 +23,7 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
         // Required empty public constructor
     }
+
 
 
     @Override
@@ -35,6 +38,7 @@ public class HomeFragment extends Fragment {
                startActivity(intent);
            }
         });
+
 
         ImageButton bt_business = (ImageButton)view.findViewById(R.id.business);
         bt_business.setOnClickListener(new View.OnClickListener(){
@@ -75,6 +79,8 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
         return view;
     }
 
