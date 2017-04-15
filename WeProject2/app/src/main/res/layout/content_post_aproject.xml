@@ -19,7 +19,7 @@
         <RelativeLayout
 
             android:layout_width="match_parent"
-            android:layout_height="1000dp"
+            android:layout_height="1200dp"
             android:layout_marginTop="10dp">
 
             <TextView
@@ -200,7 +200,7 @@
                 android:textSize="24sp" />
 
             <CheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/business"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/toDate"
@@ -234,7 +234,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/biology"
                 android:layout_alignBottom="@+id/biology"
-                android:layout_alignStart="@+id/checkBox2"
+                android:layout_alignStart="@+id/business"
                 android:text="Chemistry"
                 android:textSize="18sp" />
 
@@ -282,19 +282,58 @@
                 android:id="@+id/cs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Computer Science"
-                android:textSize="18sp"
-                android:layout_below="@+id/music"
                 android:layout_alignStart="@+id/music"
-                android:layout_marginTop="16dp" />
+                android:layout_below="@+id/music"
+                android:layout_marginTop="16dp"
+                android:text="Computer Science"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView42"
+                android:layout_below="@+id/cs"
+                android:layout_marginTop="28dp"
+                android:text="Reward:"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/fill"
+                android:layout_alignTop="@+id/reward"
+                android:layout_alignStart="@+id/reward" />
+
+            <EditText
+                android:id="@+id/reward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:layout_below="@+id/textView14"
+                android:layout_alignStart="@+id/cs"
+                android:layout_marginTop="12dp"
+                android:layout_alignEnd="@+id/imageView18" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/reward"
+                android:layout_alignBottom="@+id/reward"
+                android:layout_alignEnd="@+id/reward"
+                android:text="$"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/cs"
-                android:layout_marginTop="27dp"
-                android:layout_toEndOf="@+id/checkBox2"
+                android:layout_below="@+id/imageView5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="53dp"
                 android:onClick="gotoHome"
                 android:text="Post" />
 
