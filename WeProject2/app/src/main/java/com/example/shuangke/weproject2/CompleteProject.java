@@ -36,7 +36,7 @@ public class CompleteProject extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 
-                Intent intent = new Intent(view.getContext(),ComputerScienceProjectDetail.class);
+                Intent intent = new Intent(view.getContext(),CompleteProjectDetail.class);
                 startActivityForResult(intent, position);
 
             }

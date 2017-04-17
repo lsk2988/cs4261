@@ -145,11 +145,6 @@
         </RelativeLayout>
     </ScrollView>
 
-    <include
-        android:layout_height="wrap_content"
-        android:layout_width="450dp"
-        layout="@layout/toolbar_layout"
-        android:id="@+id/toolbar"></include>
 
 
 

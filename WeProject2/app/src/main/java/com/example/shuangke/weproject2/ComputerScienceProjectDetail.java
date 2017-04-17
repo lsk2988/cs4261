@@ -11,7 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 
@@ -24,9 +29,12 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ComputerScienceProjectDetail extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+    private DatabaseReference userplist;
     private String decriptionData;
     private String rewardData;
     private String requirementData;
+    private String uid;
     private DatabaseReference drf;
     private TextView description;
     private TextView reward;
@@ -34,6 +42,7 @@ public class ComputerScienceProjectDetail extends AppCompatActivity {
     private String pid;
     private String emailadd;
     private String ptitle;
+    private String ps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,19 +54,42 @@ public class ComputerScienceProjectDetail extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         decriptionData = "";
         requirementData = "";
-        requirementData = "";
 
         int position = getIntent().getIntExtra("position",0);
-        ArrayList<String> plist = getIntent().getStringArrayListExtra("plist");
+        final ArrayList<String> plist = getIntent().getStringArrayListExtra("plist");
         ptitle = getIntent().getStringExtra("ptitle");
         pid = "&"+ plist.get(position);
         description = (TextView)findViewById(R.id.description);
         reward = (TextView) findViewById(R.id.reward);
         requirement = (TextView) findViewById(R.id.requirement);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+        mAuth = FirebaseAuth.getInstance();
+        uid = mAuth.getCurrentUser().getEmail().toString();
+        uid = uid.replace("@","");
+        uid = uid.replace(".","");
+        userplist = FirebaseDatabase.getInstance().getReference().child("user").child(uid).child("appliedProject");
+        //get projectlist
+        userplist.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ps = dataSnapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                userplist.setValue(ps + pid + ";");
                 String[] to = {emailadd};
                 String subject = "Project Join Requst From WeProject";
                 String message = "I want to join your project with title:" + ptitle;
@@ -135,15 +167,16 @@ public class ComputerScienceProjectDetail extends AppCompatActivity {
                     bufferedReader.close();
                 }
             }
+            System.out.print(out + "-------------------------------------");
             int dindex = out.indexOf("description");
-            int dindex_end = out.indexOf("members");
+            int dindex_end = out.indexOf("endDate");
             decriptionData = decriptionData + out.substring(dindex + 14,dindex_end-3);
             description.setText(decriptionData);
             int rindex = out.indexOf("award");
-            int rindex_end = out.indexOf("catagories");
+            int rindex_end = out.indexOf("beginDate");
             String sub = out.substring(rindex,rindex_end);
             int num = Integer.parseInt(sub.replaceAll("[\\D]", ""));
-            reward.setText(Integer.toString(num) + "$");
+            reward.setText(" $" + Integer.toString(num));
             int reqindex = out.indexOf("requirement");
             int reqindex_end = out.indexOf("title");
             requirement.setText(out.substring(reqindex+14,reqindex_end-3));
