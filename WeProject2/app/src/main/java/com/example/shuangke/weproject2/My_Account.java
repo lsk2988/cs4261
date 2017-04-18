@@ -1,16 +1,13 @@
 package com.example.shuangke.weproject2;
 
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,15 +16,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONException;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 
 /**
@@ -58,7 +46,7 @@ public class My_Account extends Fragment {
                 startActivity(intent);
             }
         });
-        emailadd = (TextView) view.findViewById(R.id.email);
+        emailadd = (TextView) view.findViewById(R.id.first_name);
         name = (TextView) view.findViewById(R.id.username);
         String email = fauth.getCurrentUser().getEmail().toString();
         emailadd.setText(email);

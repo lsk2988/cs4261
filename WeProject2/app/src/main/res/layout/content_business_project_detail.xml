@@ -87,7 +87,7 @@
 
     <include
         android:layout_height="wrap_content"
-        android:layout_width="450dp"
+        android:layout_width="match_parent"
         layout="@layout/toolbar_layout"
         android:id="@+id/toolbar"></include>
 

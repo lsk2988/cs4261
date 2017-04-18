@@ -53,14 +53,17 @@ public class PostedProjectDetail extends AppCompatActivity {
     private String ps;
     private String members;
     private TextView mem;
-    private String joinlist;
-    private DatabaseReference ref;
+    private DatabaseReference newm;
+    private DatabaseReference changeapp;
+    int flag;
+    int flag2;
 
     EditText input;
-    TextView addMember;
-    String addUserList;// 这个是post project 的人输入的想要加的的用户信息
+    TextView addMember; //added member name
+    String addUserList;// user added
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posted_project_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -81,12 +84,45 @@ public class PostedProjectDetail extends AppCompatActivity {
                 addUserList = input.getText().toString();
                 drf = FirebaseDatabase.getInstance().getReference().child("projects").child(pid).child("members");
                 drf.setValue(members + addUserList + ";");
-                Toast.makeText(getApplicationContext(),"add User: " + addUserList,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "add User: " + addUserList, Toast.LENGTH_LONG).show();
                 mem.setText(members + addUserList + ";");
-                String newmmem = addUserList + ";";
-                //ref.setValue(joinlist + pid + ";");
+                String newmmem = addUserList;
+                newmmem = newmmem.replace("@", "");
+                newmmem = newmmem.replace(".", "");
 
+                //get users' joined list
+                newm = FirebaseDatabase.getInstance().getReference().child("user").child(newmmem).child("joinedproject");
+                flag = 1;
+                newm.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (flag == 1) {
+                            newm.setValue(dataSnapshot.getValue(String.class) + pid + ";");
+                            flag = 0;
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+
+                //remove project name from user's applied proejctlist
+                changeapp = FirebaseDatabase.getInstance().getReference().child("user").child(newmmem).child("appliedProject");
+                flag2 = 1;
+                changeapp.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (flag2 == 1) {
+                            changeapp.setValue(dataSnapshot.getValue(String.class).replace(pid + ";", ""));
+                            flag2 = 0;
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
 
             }
         });
@@ -101,9 +137,7 @@ public class PostedProjectDetail extends AppCompatActivity {
 
         final AlertDialog ad = builder.create();
 
-        //click to invoke the dialog
-
-        addMember = (TextView)findViewById(R.id.addMember);
+        addMember = (TextView) findViewById(R.id.addMember);
         addMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,45 +148,30 @@ public class PostedProjectDetail extends AppCompatActivity {
 
         decriptionData = "";
         requirementData = "";
-        int position = getIntent().getIntExtra("position",0);
+        int position = getIntent().getIntExtra("position", 0);
         final ArrayList<String> plist = getIntent().getStringArrayListExtra("plist");
         ptitle = getIntent().getStringExtra("ptitle");
         pid = plist.get(position);
-        description = (TextView)findViewById(R.id.description);
+        description = (TextView) findViewById(R.id.description);
         reward = (TextView) findViewById(R.id.reward);
         requirement = (TextView) findViewById(R.id.requirement);
         mem = (TextView) findViewById(R.id.team_members);
+
+        //get Current user email.
         uid = mAuth.getCurrentUser().getEmail().toString();
-        uid = uid.replace("@","");
-        uid = uid.replace(".","");
+        uid = uid.replace("@", "");
+        uid = uid.replace(".", "");
 
-
-        new GetDataTask().execute("https://testfirebase-1fb45.firebaseio.com/projects/"+pid+".json");
-
-//        wrong user
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("user").child(uid).child("joinedproject");
-//        ref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                joinlist = dataSnapshot.getValue(String.class);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-
-
-
+        //API call to GET project detail
+        new GetDataTask().execute("https://testfirebase-1fb45.firebaseio.com/projects/" + pid + ".json");
 
     }
 
 
-
-    class GetDataTask extends AsyncTask<String,Void,String> {
+    class GetDataTask extends AsyncTask<String, Void, String> {
 
         ProgressDialog progressDialog;
+
         @Override
         protected void onPreExecute() {
 
@@ -177,29 +196,29 @@ public class PostedProjectDetail extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             //mResult.setText(result);
-            if(progressDialog != null) {
+            if (progressDialog != null) {
                 progressDialog.dismiss();
             }
         }
 
 
-        private String getData(String urlPath) throws IOException, JSONException{
+        private String getData(String urlPath) throws IOException, JSONException {
             StringBuilder result = new StringBuilder();
             BufferedReader bufferedReader = null;
             String out;
-            try{
+            try {
                 URL url = new URL(urlPath);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setReadTimeout(1000);
                 urlConnection.setConnectTimeout(1000);
                 urlConnection.setRequestMethod("GET");
-                urlConnection.setRequestProperty("Content-Type","application/json");
+                urlConnection.setRequestProperty("Content-Type", "application/json");
                 urlConnection.connect();
 
                 InputStream inputStream = urlConnection.getInputStream();
                 bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 String line;
-                while((line = bufferedReader.readLine()) != null) {
+                while ((line = bufferedReader.readLine()) != null) {
                     result.append(line);
 
                 }
@@ -212,23 +231,23 @@ public class PostedProjectDetail extends AppCompatActivity {
             }
             int dindex = out.indexOf("description");
             int dindex_end = out.indexOf("endDate");
-            decriptionData = decriptionData + out.substring(dindex + 14,dindex_end-3);
+            decriptionData = decriptionData + out.substring(dindex + 14, dindex_end - 3);
             description.setText(decriptionData);
             int rindex = out.indexOf("award");
             int rindex_end = out.indexOf("beginDate");
-            String sub = out.substring(rindex,rindex_end);
+            String sub = out.substring(rindex, rindex_end);
             int num = Integer.parseInt(sub.replaceAll("[\\D]", ""));
             reward.setText(" $" + Integer.toString(num));
             int reqindex = out.indexOf("requirement");
             int reqindex_end = out.indexOf("title");
-            requirement.setText(out.substring(reqindex+14,reqindex_end-3));
+            requirement.setText(out.substring(reqindex + 14, reqindex_end - 3));
             int indexo = out.indexOf("owner");
             int indexoend = out.indexOf("requirement");
             emailadd = out.substring(indexo + 7, indexoend - 3);
-            System.out.println(emailadd+"------------------------");
+            System.out.println(emailadd + "------------------------");
             int mindex = out.indexOf("members");
             int mendindex = out.indexOf("owner");
-            members = out.substring(mindex+10,mendindex - 3);
+            members = out.substring(mindex + 10, mendindex - 3);
             mem.setText(members);
             //System.out.println(members + "++++++++++++++");
 
@@ -236,6 +255,9 @@ public class PostedProjectDetail extends AppCompatActivity {
         }
     }
 
-
+    public void gotoEdit(View view){
+        Intent intent = new Intent(PostedProjectDetail.this,EditPostedProject.class);
+        startActivity(intent);
+    }
 
 }

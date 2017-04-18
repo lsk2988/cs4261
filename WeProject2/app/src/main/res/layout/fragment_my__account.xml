@@ -45,7 +45,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/email"
+            android:id="@+id/first_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/textView5"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Log out"
-            android:layout_below="@+id/email"
+            android:layout_below="@+id/first_name"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
 </FrameLayout>
